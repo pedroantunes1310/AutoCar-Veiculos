@@ -1,1 +1,56 @@
-<p>contact-component works!</p>
+<!-- Botão Fale Conosco centralizado e estilizado -->
+<div class="d-flex justify-content-center my-4">
+    <button class="btn btn-lg btn-primary btn-rounded shadow" (click)="open(content)">Fale Conosco</button>
+  </div>
+  
+  <!-- Modal Fale Conosco -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Fale Conosco</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="name">Nome Completo</label>
+          <div class="input-group">
+            <input
+              id="name"
+              class="form-control"
+              placeholder="Seu nome completo"
+              name="name"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email">E-mail</label>
+          <div class="input-group">
+            <input
+              id="email"
+              type="email"
+              class="form-control"
+              placeholder="Seu e-mail"
+              name="email"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="message">Mensagem</label>
+          <div class="input-group">
+            <textarea
+              id="message"
+              class="form-control"
+              placeholder="Digite sua mensagem"
+              name="message"
+              rows="3"
+            ></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="modal.close('Fechar')">Fechar</button>
+      <button type="button" class="btn btn-primary" (click)="enviarMensagem()">Enviar Mensagem</button>
+    </div>
+  </ng-template>
+  
